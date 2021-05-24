@@ -77,4 +77,16 @@ contract ZombieFactory is Ownable {
         //通知：创建僵尸
         emit NewZombie(id, _name, randDna);
     }
+
+    //购买僵尸
+    function buyZombie(string memory _name) public payable {
+        //验证发送者是否拥有僵尸
+        require(ownerZombieCount[msg.sender] > 0);
+        //验证发送者是否拥有足够金额
+        require(msg.value > zombiePrice);
+        uint randDna = _generateRandomDna(_name);
+        //将dna最后一位数字为 1 (代表买到的)
+        randDna = randDna - randDna % 10 + 1;
+        _createZombie(_name, randDna);
+    }
 }
