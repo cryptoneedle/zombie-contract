@@ -1,12 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.5.14;
 
-import "./lib/SafeMath.sol";
-import "./lib/Ownable.sol";
+import "../lib/SafeMath.sol";
+import "../lib/Ownable.sol";
 
-/**
-    僵尸工厂
-*/
 contract ZombieFactory is Ownable {
 
     using SafeMath for uint256;
@@ -34,7 +31,7 @@ contract ZombieFactory is Ownable {
         //等级
         uint32 level;
         //冷却时间
-        uint32 cooldownTime;
+        uint32 readyTime;
     }
 
     Zombie[] public zombies;
