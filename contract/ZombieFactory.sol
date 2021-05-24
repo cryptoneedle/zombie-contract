@@ -43,14 +43,20 @@ contract ZombieFactory is Ownable {
     //僵尸id => 喂食次数
     mapping (uint => uint) public zombieFeedTimes;
 
+    //事件：生成僵尸
     event NewZombie(uint zombieId, string name, uint dna);
+
+    //生成随机DNA
+    function _generateRandomDna(string memory _str) private view returns(uint) {
+        return uint(uint(keccak256(abi.encodePacked(_str, block.timestamp))) % dnaDigits);
+    }
 
     //输入名称创建僵尸
     function createZombie(string memory _name) public {
         //验证发送者僵尸数量为0
         require(ownerZombieCount[msg.sender] == 0);
         //根据名称获取随机数dna
-        uint randDna = uint(uint(keccak256(abi.encodePacked(_name, block.timestamp))) % dnaDigits);
+        uint randDna = _generateRandomDna(_name);
         //将dna最后一位数字改为0
         randDna = randDna - randDna % 10;
         //创建僵尸
