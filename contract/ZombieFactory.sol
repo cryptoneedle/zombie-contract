@@ -51,6 +51,15 @@ contract ZombieFactory is Ownable {
         return uint(uint(keccak256(abi.encodePacked(_str, block.timestamp))) % dnaDigits);
     }
 
+    //创建僵尸
+    function _createZombie(string memory _name, uint _dna) internal {
+        uint id = zombies.push(Zombie(_name, _dna, 0, 0, 1, 0));
+        zombieToOwner[id] = msg.sender;
+        ownerZombieCount[msg.sender] = ownerZombieCount[msg.sender].add(1);
+        zombieCount = zombieCount.add(1);
+        emit NewZombie(id, _name, _dna);
+    }
+
     //输入名称创建僵尸
     function createZombie(string memory _name) public {
         //验证发送者僵尸数量为0
