@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.5.14;
 
-import "../lib/SafeMath.sol";
-import "../lib/Ownable.sol";
+import "./lib/SafeMath.sol";
+import "./lib/Ownable.sol";
 
 /**
     僵尸工厂
