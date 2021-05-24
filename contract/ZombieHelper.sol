@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0
 pragma solidity ^0.5.14;
 
-import "./zombieFactory.sol";
+import "./ZombieFactory.sol";
 
 /**
     僵尸助手
@@ -19,7 +19,7 @@ contract ZombieHelper is ZombieFactory {
 
     //确认只能持有者调用
     modifier onlyOwnerOf(uint _zombieId) {
-        require(msg.sender == zombieToOwner[_zombieId]);
+        //require(msg.sender == zombieToOwner[_zombieId]);
         _;
     }
 
