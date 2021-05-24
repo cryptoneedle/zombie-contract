@@ -6,7 +6,7 @@ import "./ZombieHelper.sol";
 /**
     僵尸喂食
 */
-contract ZombieFeeding is ZombieHelper{
+contract ZombieFeeding is ZombieHelper {
 
     //喂食僵尸
     //todo 付费喂食 重置冷却时间
