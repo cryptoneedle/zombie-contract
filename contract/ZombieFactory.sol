@@ -89,4 +89,9 @@ contract ZombieFactory is Ownable {
         randDna = randDna - randDna % 10 + 1;
         _createZombie(_name, randDna);
     }
+
+    //调整僵尸售价 | 单位为 wei | 必须是合约拥有者才能调用
+    function setZombiePrice(uint _price) external onlyOwner {
+        zombiePrice = _price;
+    }
 }
