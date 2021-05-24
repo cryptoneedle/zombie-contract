@@ -38,7 +38,9 @@ contract ZombieHelper is ZombieFactory {
     }
 
     //20级可以改名
-    function setName(uint _zombieId, string calldata _name) external aboveLevel(20, _zombieId) onlyOwnerOf(_zombieId) {
+    //todo 付费改名
+    //todo onlyOwnerOf(_zombieId) 有bug 不能通过验证
+    function changeName(uint _zombieId, string calldata _name) external aboveLevel(2, _zombieId) onlyOwnerOf(_zombieId) {
         zombies[_zombieId].name = _name;
     }
 
