@@ -4,6 +4,9 @@ pragma solidity ^0.5.14;
 import "../lib/SafeMath.sol";
 import "../lib/Ownable.sol";
 
+/**
+    僵尸工厂
+*/
 contract ZombieFactory is Ownable {
 
     using SafeMath for uint256;
