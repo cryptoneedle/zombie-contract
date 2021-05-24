@@ -48,7 +48,7 @@ contract ZombieFactory is Ownable {
 
     //生成随机DNA
     function _generateRandomDna(string memory _str) private view returns(uint) {
-        return uint(uint(keccak256(abi.encodePacked(_str, block.timestamp))) % dnaDigits);
+        return uint(uint(keccak256(abi.encodePacked(_str, block.timestamp))) % dnaModulus);
     }
 
     //创建僵尸
