@@ -6,7 +6,7 @@ import "./ZombieOwnerShip.sol";
 /**
     僵尸市场
 */
-contract ZombieMarket is ZombieOwnerShip{
+contract ZombieMarket is ZombieOwnerShip {
 
     //税
     uint public tax = 1 finney;
